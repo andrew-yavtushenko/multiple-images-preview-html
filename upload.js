@@ -37,6 +37,11 @@ function init() {
   var previews = document.getElementById('previews')
   var input = document.getElementById('image_input');
   input.onchange = function() {
-    load_image_previews(this, previews);
+    if (window.FileReader) {
+      load_image_previews(this, previews);
+    } else {
+      alert("No previews for you");
+    }
+    
   };
 };
